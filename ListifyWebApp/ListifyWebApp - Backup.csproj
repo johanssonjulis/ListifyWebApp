@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>3e83388b-7bd1-4cb4-81c0-4858924776d7</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,12 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.21.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="6.0.1" />
   </ItemGroup>
 
 </Project>
