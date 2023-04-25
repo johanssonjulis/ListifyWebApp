@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using static ListifyWebApp.DataAccess.IRepository;
 using Microsoft.Azure.Cosmos;
+using Container = Microsoft.Azure.Cosmos.Container;
+using System.Linq;
 
 namespace ListifyWebApp.DataAccess
 {
