@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "grfN5W8FJfQvCy8atFVz36LgjzaA3fm6/rqnejc9W5p1uAzh640GblVy+dfemuM6LurGNFOYOWSro9P6tFWsuQ==",
+  "dgSpecHash": "0CB2tsaC7e+qX2TrX7z82uLkSqbEcdL1QkMOKtRa9PN/D7DG7ge+rfCdk6sUHoMNG2e4rcCmCiaTTiay0fzXog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\debbi\\source\\repos\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+  "projectFilePath": "C:\\Users\\debbi\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

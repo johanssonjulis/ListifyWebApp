@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\debbi\\source\\repos\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+      "projectUniqueName": "C:\\Users\\debbi\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
       "projectName": "ListifyClient",
-      "projectPath": "C:\\Users\\debbi\\source\\repos\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+      "projectPath": "C:\\Users\\debbi\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
       "packagesPath": "C:\\Users\\debbi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\debbi\\source\\repos\\ListifyClient\\ListifyClient\\obj\\",
+      "outputPath": "C:\\Users\\debbi\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\debbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
