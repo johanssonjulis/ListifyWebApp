@@ -12,7 +12,42 @@ html {
   position: relative;
   min-height: 100%;
 }
-
-body {
-  margin-bottom: 60px;
+header {
+    position: fixed;
+    height: 15vh;
+    width: 100vw;
+    background-color: #F3D3BD;
+    margin-top: 0px;
+    margin-left: 0px
 }
+body {
+    background-color: #FCFAF9;
+    margin: 0px;
+    
+}
+
+
+aside {
+    position: fixed;
+    height: 100vh;
+    background-color: #F3D3BD;
+    width: 15vw;
+    margin-left: 0px;
+    margin-top: 15vh;
+}
+footer :hover{
+    visibility:hidden;
+
+}
+footer{
+    visibility:visible;
+    margin: 0px;
+    bottom: 0px;
+    position: fixed;
+    height: 10vh;
+    width: 100%;
+    background-color: #5E5E5E;
+    margin-left: 0px;
+}
+
+
