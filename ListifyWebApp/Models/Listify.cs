@@ -12,5 +12,9 @@
             Name = name;
             tasks = new List<Task>();
         }
+        public Listify() 
+        { 
+            tasks = new List<Task>();
+        }
     }
 }
