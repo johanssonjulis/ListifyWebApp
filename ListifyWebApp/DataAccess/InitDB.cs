@@ -8,7 +8,7 @@ namespace ListifyWebApp.DataAccess
 
         public void Init() 
         {
-            string endpointUri = "https://localhost:7277/"; // Där ligger min CosmosDB-server
+            string endpointUri = "https://localhost:8081"; // Där ligger min CosmosDB-server
             string primaryKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="; // Den är den hemliga nyckeln som authentiserar mig mot servern
 
             CosmosClient client = new CosmosClient(endpointUri, primaryKey); // Här skapar jag en klient, som kan "prata" med databasen.
