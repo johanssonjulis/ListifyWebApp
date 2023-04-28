@@ -1,3 +1,5 @@
+using ListifyWebApp.Models;
+
 namespace ListifyWebApp
 {
     public class Program
@@ -9,7 +11,7 @@ namespace ListifyWebApp
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddControllers();
-
+            builder.Services.AddTransient<PretendDatabase>(); //VIKTIG KOD!!!!!!
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
