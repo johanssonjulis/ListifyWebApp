@@ -21,13 +21,14 @@ namespace ListifyClient
             int choice = int.Parse(Console.ReadLine());
             Console.Clear();
             Console.WriteLine($"You wrote {choice}");
+            Get();
         }
         public void Get()
         {
             
             HttpClient httpClient = new HttpClient();
            
-            Uri uri = new Uri("https://localhost:7104/api/Product/53");
+            Uri uri = new Uri("https://localhost:44359/api/Listify");
 
             
             HttpResponseMessage response = httpClient.GetAsync(uri).Result;
@@ -44,7 +45,7 @@ namespace ListifyClient
 
 
         }
-        public void Post() 
+        /*public void Post() 
         {
             HttpClient httpClient = new HttpClient();
             Uri uri = new Uri("https://localhost:7104/api/Product");
@@ -65,7 +66,7 @@ namespace ListifyClient
             Console.WriteLine("Status Code: " + (int)response.StatusCode);
             Console.WriteLine("Means: " + response.StatusCode);
 
-        }
+        }*/
         public void Put() 
         {
         
