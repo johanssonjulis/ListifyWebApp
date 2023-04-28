@@ -9,5 +9,11 @@
         {
 
         }
+        public Task(int id, string taskDescription)
+        {
+            Id = id;
+            TaskDescription = taskDescription;
+
+        }
     }
 }

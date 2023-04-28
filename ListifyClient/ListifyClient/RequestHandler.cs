@@ -24,32 +24,47 @@ namespace ListifyClient
         }
         public void Get()
         {
+            
             HttpClient httpClient = new HttpClient();
-            Uri uri = new Uri("https://localhost:7104/api/Product");
-
-            // For Post, I want to send in something called HttpContent.
-            // I create an object that will accept the variables I want
-            // to send. In this case, just a string.
-            DataContent dataContent = new DataContent("Anything else!");
-
-            // JsonConvert is from Newtonsoft.Json, a package one can
-            // install. It is well liked. An alternative for JsonSerializer.Serialize.
-            string json = JsonConvert.SerializeObject(dataContent);
-
-            Console.WriteLine("Json sent: " + json);
+           
+            Uri uri = new Uri("https://localhost:7104/api/Product/53");
 
             
-            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = httpClient.GetAsync(uri).Result;
 
             
-            HttpResponseMessage response = httpClient.PostAsync(uri, content).Result;
             Console.WriteLine("Status Code: " + (int)response.StatusCode);
             Console.WriteLine("Means: " + response.StatusCode);
+
+           
+            string text = response.Content.ReadAsStringAsync().Result;
+
+            
+            Console.WriteLine(text);
+
 
         }
         public void Post() 
         {
-            
+            HttpClient httpClient = new HttpClient();
+            Uri uri = new Uri("https://localhost:7104/api/Product");
+
+
+            DataContent dataContent = new DataContent("Anything else!");
+
+
+            string json = JsonConvert.SerializeObject(dataContent);
+
+            Console.WriteLine("Json sent: " + json);
+
+
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+
+            HttpResponseMessage response = httpClient.PostAsync(uri, content).Result;
+            Console.WriteLine("Status Code: " + (int)response.StatusCode);
+            Console.WriteLine("Means: " + response.StatusCode);
+
         }
         public void Put() 
         {
