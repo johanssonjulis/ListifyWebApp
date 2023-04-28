@@ -3,41 +3,29 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Listify</title>
+    <title>@ViewData["Title"] - ListifyWebApp</title>
     
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Normalize.css" />
-    
+    <link rel="stylesheet" href="~/css/Normalize.css" />   
 </head>
 <body>
-    
-
     <header>
-        <p>header</p>
         <div>
-            <a asp-page="/Page2"> Add list </a>
-            <a asp-page="/Page3"> View Lists </a>
-            <a asp-page="/Index"> Home Page</a>
+            <a asp-page="/Index"> Home page</a>
+            <a asp-page="/Page2"> Add/edit list</a>
+            <a asp-page="/Page3"> View lists</a>
         </div>
-    
-    
-    </header>
-    
+     </header> 
     <aside>
         <p>this is aside</p>
     </aside>
-    <body>
-        
-    </body>
- 
-            @RenderBody()
-       
-  
-
+    <main>
+        <p>hej i main</p>
+    </main>
     <footer>
         <p>this is footer</p>
-
     </footer>
 
+    @RenderBody()
 </body>
 </html>
