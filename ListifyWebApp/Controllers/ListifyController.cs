@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ListifyWebApp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Listify")]
     [ApiController] 
-    public class ListifyController : Controller
+    public class ListifyController : ControllerBase
     {
         [HttpGet]
         public Listify GetListify()
