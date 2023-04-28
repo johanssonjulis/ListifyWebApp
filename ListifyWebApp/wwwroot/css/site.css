@@ -18,8 +18,8 @@ main {
 
 
 aside {
-    position: fixed;
-    height: 85vh;
+    float:left;
+    height: 100vh;
     background-color: #868686;
     width: 15vw;
     top: 15vh;
@@ -27,10 +27,13 @@ aside {
 }
 
 footer{
+    
+    clear:both;
     height: 10vh;
-    width: 85vw;
+    width: 100vw;
     background-color: #5E5E5E;
-    margin-left: 15vw;
+    
 }
+
 
 

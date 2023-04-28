@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Normalize.css" />   
-</head>
+</head> 
 <body>
     <header>
         <div>
@@ -21,11 +21,13 @@
     </aside>
     <main>
         <p>hej i main</p>
+        @RenderBody()
     </main>
+    
     <footer>
         <p>this is footer</p>
     </footer>
 
-    @RenderBody()
+    
 </body>
 </html>

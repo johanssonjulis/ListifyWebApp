@@ -25,6 +25,7 @@ namespace ListifyWebApp.Pages
 
         public IActionResult OnPost()
         {
+           
             db.AddList(listify);
             return RedirectToPage("Page3");
         }
