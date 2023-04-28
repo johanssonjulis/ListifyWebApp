@@ -15,10 +15,11 @@ namespace ListifyWebApp.Pages
         {
             this.pretendDatabase = db;
         }
-
+        public List<Listify> listifies = new List<Listify>();
        
         public void OnGet()
         {
+            listifies = pretendDatabase.GetListifies();
            
         }
     }

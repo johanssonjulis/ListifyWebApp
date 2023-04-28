@@ -15,11 +15,13 @@ namespace ListifyWebApp.Pages
             this.db = db;
         }
 
-        public void OnGet()
-        {
-        }
         [BindProperty]
         public Listify listify { get; set; }
+
+        public void OnGet()
+        {
+            List<Listify> listifytable = db.GetListifies();
+        }
 
         public IActionResult OnPost()
         {
