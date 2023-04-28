@@ -34,6 +34,7 @@ namespace ListifyWebApp
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddTransient<PretendDatabase>();
             builder.Services.AddTransient<InitDB>();
             var app = builder.Build();
 
