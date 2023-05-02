@@ -4,19 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ListifyWebApp</title>
-    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Normalize.css" />   
 </head> 
 <body>
     <header>
         <div>
+            <p class="fst-italic">Italic text.</p>
             <a asp-page="/Index"> Home page</a>
             <a asp-page="/Page2"> Add/edit list</a>
             <a asp-page="/Page3"> View lists</a>
         </div>
      </header> 
-    <aside>
+         <aside>
         <p>this is aside</p>
     </aside>
     <main>
@@ -27,7 +28,9 @@
     <footer>
         <p>this is footer</p>
     </footer>
-
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     
 </body>
 </html>
