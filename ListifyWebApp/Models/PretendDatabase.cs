@@ -6,9 +6,9 @@
 
         public List<Listify> GetListifies()
         {
-            ListTable.Add(new Listify(0, "Att göra lista"));
+            /*ListTable.Add(new Listify(0, "Att göra lista"));
             ListTable.Add(new Listify(1, "Veckodagar"));
-            ListTable.Add(new Listify(2, "Skoldagar"));
+            ListTable.Add(new Listify(2, "Skoldagar"));*/
 
             return ListTable;
         }
