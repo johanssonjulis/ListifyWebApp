@@ -1,0 +1,3 @@
+Koppla till databas. 
+Generera databas utifrån objekt som är skapade. 
+Den som rekommenderas att användas är mysql och microsoft sql server
