@@ -3,11 +3,10 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<link rel="stylesheet" href="~/css/Page2.css" />
 
-<div class="addlink">
-    <a asp-page="Page2">Add</a>
-</div>
+<!--<a asp-page="/Page3"> VANLIG LÄNK MELLAN SIDORNA</a>-->
 
-
-
+<button class="btn btn-primary" type="submit"><a asp-page="Page2" role="button">Add List / Edit list</a></button>
+<button class="btn btn-primary" type="submit"><a asp-page="Page3" role="button">Viev Lists</a></button>
 

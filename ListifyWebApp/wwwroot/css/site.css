@@ -1,7 +1,10 @@
-
+html {
+    height: 100%;
+}
 body{
     margin:0;
     padding:0;
+    height: 100%;
 }
 
 header {
@@ -13,12 +16,11 @@ header {
 }
 main {
     margin-top: 15vh;
-    margin-left:15vw;
 }
 
 
 aside {
-    float:left;
+    float: left; /* vet inte den här koden!*/
     height: 100vh;
     background-color: #868686;
     width: 15vw;
@@ -26,14 +28,21 @@ aside {
     left: 0;
 }
 
-footer{
-    
-    clear:both;
-    height: 10vh;
+body > footer{
+    clear:both; /* vet inte den här koden!*/
     width: 100vw;
     background-color: #5E5E5E;
+    position:sticky;
+    top: 100vh;
+    
+
     
 }
-
+#Headline{
+    color:black;
+    display:flex;
+    justify-content:center;
+    text-decoration:none;
+}
 
 

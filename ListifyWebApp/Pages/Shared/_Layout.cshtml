@@ -6,27 +6,21 @@
     <title>@ViewData["Title"] - ListifyWebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Normalize.css" />   
+    
 </head> 
 <body>
     <header>
-        <div>
-            <p class="fst-italic">Italic text.</p>
-            <a asp-page="/Index"> Home page</a>
-            <a asp-page="/Page2"> Add/edit list</a>
-            <a asp-page="/Page3"> View lists</a>
+        <div >
+            <a id ="Headline" asp-page="/Index" class="fw-light fst-italic  display-3">Listify</a>
         </div>
-     </header> 
-         <aside>
-        <p>this is aside</p>
-    </aside>
+     </header>
     <main>
-        <p>hej i main</p>
+        <p></p>
         @RenderBody()
     </main>
     
     <footer>
-        <p>this is footer</p>
+       <p>Footer.</p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
