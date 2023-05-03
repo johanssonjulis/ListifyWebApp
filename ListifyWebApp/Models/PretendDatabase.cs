@@ -19,7 +19,7 @@
         
         public void AddTasks()
         {
-            Task task = new Task();
+            ItemTask task = new ItemTask();
 
         }
 

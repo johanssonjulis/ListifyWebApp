@@ -1,15 +1,15 @@
 ﻿namespace ListifyWebApp.Models
 {
-    public class Task
+    public class ItemTask
     {
         public int Id { get; set; }
         public string TaskDescription { get; set; }
 
-        public Task()
+        public ItemTask()
         {
 
         }
-        public Task(int id, string taskDescription)
+        public ItemTask(int id, string taskDescription)
         {
             Id = id;
             TaskDescription = taskDescription;

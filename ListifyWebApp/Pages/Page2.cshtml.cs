@@ -18,6 +18,8 @@ namespace ListifyWebApp.Pages
         [BindProperty]
         public Listify listify { get; set; }
 
+        public List<Task> taskList { get; set; }
+
         public void OnGet()
         {
             List<Listify> listifytable = db.GetListifies();
@@ -25,9 +27,10 @@ namespace ListifyWebApp.Pages
 
         public IActionResult OnPost()
         {
+
            
             db.AddList(listify);
-            return RedirectToPage("Page3");
+            return RedirectToPage("Page2");
         }
     }
 }
