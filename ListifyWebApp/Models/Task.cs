@@ -1,15 +1,18 @@
-﻿namespace ListifyWebApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ListifyWebApp.Models
 {
-    public class Task
+    public class ItemTask
     {
+        [Key]
         public int Id { get; set; }
         public string TaskDescription { get; set; }
 
-        public Task()
+        public ItemTask()
         {
 
         }
-        public Task(int id, string taskDescription)
+        public ItemTask(int id, string taskDescription)
         {
             Id = id;
             TaskDescription = taskDescription;
