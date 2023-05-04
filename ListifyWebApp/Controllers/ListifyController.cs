@@ -1,4 +1,5 @@
-﻿using ListifyWebApp.Models;
+﻿using ListifyWebApp.DataAccess;
+using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -8,16 +9,16 @@ namespace ListifyWebApp.Controllers
     [ApiController] 
     public class ListifyController : ControllerBase
     {
+        DatabaseContext db;
+
+        public ListifyController(DatabaseContext databaseContext)
+        { 
+            db = databaseContext;
+        }
         [HttpGet]
-        public Listify GetListify()
+        public List<Listify> GetListify()
         {
-            Listify listify = new Listify(1, "Skolväska");
-            listify.tasks.Add(new Models.Task(0, "Penna"));
-            listify.tasks.Add(new Models.Task(1, "Bok")); 
-            listify.tasks.Add(new Models.Task(2, "Äpple"));
-
-            return listify;
-
+            return db.Listify.ToList();
         }
          
 

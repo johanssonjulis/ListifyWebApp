@@ -2,6 +2,7 @@ using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Azure.Cosmos;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -34,8 +35,16 @@ namespace ListifyWebApp
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddControllers();
             builder.Services.AddTransient<PretendDatabase>();
             builder.Services.AddTransient<InitDB>();
+
+
+            builder.Services.AddDbContext<DatabaseContext>(options =>
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("myConnectionString")
+                    ));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -56,6 +65,7 @@ namespace ListifyWebApp
             app.UseAuthorization();
 
             app.MapRazorPages();
+            app.MapControllers();
 
             app.Run();
         }

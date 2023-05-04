@@ -1,3 +1,4 @@
+using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,18 +10,18 @@ namespace ListifyWebApp.Pages
     
     public class Page3Model : PageModel
     {
-        PretendDatabase pretendDatabase;
+        DatabaseContext db;
 
-        public Page3Model(PretendDatabase db)
+        public Page3Model(DatabaseContext db)
         {
-            this.pretendDatabase = db;
+            this.db = db;
         }
-        public List<Listify> listifies = new List<Listify>();
+        public List<Listify> Listifies { get; set; }
        
         public void OnGet()
         {
-            listifies = pretendDatabase.GetListifies();
-           
+            Listifies = db.Listify.ToList();
         }
     }
 }
+

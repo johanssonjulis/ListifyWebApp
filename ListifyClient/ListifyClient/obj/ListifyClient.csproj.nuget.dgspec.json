@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\debbi\\source\\repos\\listify\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj": {}
+    "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\debbi\\source\\repos\\listify\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj": {
+    "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\debbi\\source\\repos\\listify\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+        "projectUniqueName": "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
         "projectName": "ListifyClient",
-        "projectPath": "C:\\Users\\debbi\\source\\repos\\listify\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
-        "packagesPath": "C:\\Users\\debbi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\debbi\\source\\repos\\listify\\ListifyWebApp\\ListifyClient\\ListifyClient\\obj\\",
+        "projectPath": "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+        "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\debbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\olivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
