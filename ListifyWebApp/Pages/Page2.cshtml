@@ -5,17 +5,12 @@
 <link href="~/css/Page2.css" rel="stylesheet" />
 
 <form method="post">
-    <input type="text" name="Name" placeholder="List name: "></input>
-    <input type="number" name="Id" />
+    <input asp-for="@Model.listify.Name" type="text" placeholder="List name:"></input>
+
     <button id="submitButton" type="submit">Add</button>
 </form>
 <div id="placeholderForTasks"></div>
-<form method="post">
-    <input hidden="true" type="text" name="Task" placeholder="Task:" />
-    <button id="buttonAddTask" type="submit">Add task</button>
 
-
-</form>
 
 
 

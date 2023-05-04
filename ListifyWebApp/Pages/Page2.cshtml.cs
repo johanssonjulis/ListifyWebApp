@@ -1,3 +1,4 @@
+using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,9 +9,9 @@ namespace ListifyWebApp.Pages
     
     public class Page2Model : PageModel
     {
-        PretendDatabase db;
+        DatabaseContext db;
 
-        public Page2Model(PretendDatabase db)
+        public Page2Model(DatabaseContext db)
         {
             this.db = db;
         }
@@ -20,13 +21,14 @@ namespace ListifyWebApp.Pages
 
         public void OnGet()
         {
-            List<Listify> listifytable = db.GetListifies();
+        
         }
 
         public IActionResult OnPost()
         {
            
-            db.AddList(listify);
+            db.Listify.Add(listify);
+            db.SaveChanges();
             return RedirectToPage("Page3");
         }
     }
