@@ -12,11 +12,6 @@ namespace ListifyWebApp.Models
         {
 
         }
-        public ItemTask(int id, string taskDescription)
-        {
-            Id = id;
-            TaskDescription = taskDescription;
-
-        }
+        
     }
 }
