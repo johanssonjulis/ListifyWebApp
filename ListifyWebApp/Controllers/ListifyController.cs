@@ -37,9 +37,6 @@ namespace ListifyWebApp.Controllers
                 //return BadRequest("");
             }
 
-            // return a 204 No Content response to indicate success
-            //return;
-        }
 
     }
 }
