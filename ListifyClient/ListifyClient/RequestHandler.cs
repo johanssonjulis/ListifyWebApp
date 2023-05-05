@@ -28,7 +28,7 @@ namespace ListifyClient
             
             HttpClient httpClient = new HttpClient();
            
-            Uri uri = new Uri("https://localhost:44359/api/Listify");
+            Uri uri = new Uri("https://localhost:7277/api/Listify");
 
             
             HttpResponseMessage response = httpClient.GetAsync(uri).Result;
@@ -45,16 +45,14 @@ namespace ListifyClient
 
 
         }
-        /*public void Post() 
+        public void Post()
         {
             HttpClient httpClient = new HttpClient();
-            Uri uri = new Uri("https://localhost:7104/api/Product");
+            Uri uri = new Uri("https://localhost:7277/api/Listify");
 
 
-            DataContent dataContent = new DataContent("Anything else!");
 
-
-            string json = JsonConvert.SerializeObject(dataContent);
+            string json = JsonConvert.SerializeObject(new Listify(10, "julia"));
 
             Console.WriteLine("Json sent: " + json);
 
@@ -66,7 +64,7 @@ namespace ListifyClient
             Console.WriteLine("Status Code: " + (int)response.StatusCode);
             Console.WriteLine("Means: " + response.StatusCode);
 
-        }*/
+        }
         public void Put() 
         {
         

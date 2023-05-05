@@ -1,7 +1,7 @@
 ﻿using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Net;
 
 namespace ListifyWebApp.Controllers
 {
@@ -20,8 +20,26 @@ namespace ListifyWebApp.Controllers
         {
             return db.Listify.ToList();
         }
-         
 
+        [HttpPost]
+        public void PostListify([FromBody] Listify listify )
+        {
+
+            db.Listify.Add(listify);
+            db.SaveChanges();
+        }
+
+        [HttpPut]
+        public Listify PutListify([FromBody] Listify listify ) 
+        { 
+            if (listify.Id <= 0)
+            {
+                //return BadRequest("");
+            }
+
+            // return a 204 No Content response to indicate success
+            //return;
+        }
 
     }
 }

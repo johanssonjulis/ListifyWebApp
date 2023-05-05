@@ -11,7 +11,8 @@
             {
                 
                 output.DisplayOptions();
-                
+
+                request.Post();
                 request.Request();
                 
 

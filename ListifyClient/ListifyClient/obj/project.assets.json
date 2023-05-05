@@ -55,19 +55,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\olivi\\.nuget\\packages\\": {}
+    "C:\\Users\\vadfa\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+      "projectUniqueName": "C:\\Users\\vadfa\\source\\repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
       "projectName": "ListifyClient",
-      "projectPath": "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
-      "packagesPath": "C:\\Users\\olivi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\obj\\",
+      "projectPath": "C:\\Users\\vadfa\\source\\repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+      "packagesPath": "C:\\Users\\vadfa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vadfa\\source\\repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\olivi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vadfa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

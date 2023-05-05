@@ -17,28 +17,8 @@ namespace ListifyWebApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddSingleton<IRepository<Listify>>(provider =>
-            {
-                string endpointUri = "https://localhost:8081";
-                string primaryKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
-                var client = new CosmosClient(endpointUri, primaryKey);
-
-                var databaseName = "listifyDB";
-                var containerName = "listifyContainer";
-
-                var database = client.CreateDatabaseIfNotExistsAsync(databaseName).GetAwaiter().GetResult();
-
-                var container = database.Database.CreateContainerIfNotExistsAsync(containerName, "/partitionKey").GetAwaiter().GetResult();
-
-                return new CosmosDBRepository<Listify>(container.Container);
-            });
-
-            // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddControllers();
-            builder.Services.AddTransient<PretendDatabase>();
-            builder.Services.AddTransient<InitDB>();
-
 
             builder.Services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(
@@ -54,8 +34,6 @@ namespace ListifyWebApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
