@@ -2,8 +2,14 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-const submitButton = document.getElementById("submitButton");
+const addTaskButton = document.getElementById("addTaskButton");
+const placeHolder = document.getElementById("placeholderForTasks");
 
-submitButton.addEventListener("click", function (event) {
-    
-})
+addTaskButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    let nextinput = document.createElement("input");
+    nextinput.setAttribute("name", "task");
+   
+    placeHolder.appendChild(nextinput);
+
+});
