@@ -6,13 +6,13 @@ using System.Net;
 namespace ListifyWebApp.Controllers
 {
     [Route("api/Listify")]
-    [ApiController] 
+    [ApiController]
     public class ListifyController : ControllerBase
     {
         DatabaseContext db;
 
         public ListifyController(DatabaseContext databaseContext)
-        { 
+        {
             db = databaseContext;
         }
         [HttpGet]
@@ -22,7 +22,7 @@ namespace ListifyWebApp.Controllers
         }
 
         [HttpPost]
-        public void PostListify([FromBody] Listify listify )
+        public void PostListify([FromBody] Listify listify)
         {
 
             db.Listify.Add(listify);
@@ -30,13 +30,15 @@ namespace ListifyWebApp.Controllers
         }
 
         [HttpPut]
-        public Listify PutListify([FromBody] Listify listify ) 
-        { 
+        public Listify PutListify([FromBody] Listify listify)
+        {
             if (listify.Id <= 0)
             {
                 //return BadRequest("");
             }
+            return listify;
 
 
+        }
     }
 }
