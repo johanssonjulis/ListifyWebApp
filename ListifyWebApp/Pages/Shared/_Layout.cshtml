@@ -10,20 +10,17 @@
 <body>
     <header>
         <div >
-            <a id ="Headline" asp-page="/Index" class="fw-light fst-italic  display-3">Listify</a>
+            <a asp-page="/Index"><p id="Waterfall" class="fw-light fst-italic display-3 >Listify</p></a>
         </div>
      </header>
     <main>
-        <p></p>
         @RenderBody()
-    </main>
-    
+    </main> 
     <footer>
        <p>Footer.</p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
 </body>
 </html>
