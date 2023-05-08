@@ -4,14 +4,22 @@
 }
 <link href="~/css/Page2.css" rel="stylesheet" />
 
-<form method="post">
+<form method="post" asp-page-handler="AddListify">
+    
     <input asp-for="listname" type="text" placeholder="List name:"></input>
-    <button id="submitButton" type="submit">Add</button>
+    
+    <!--</form>
+    <form method="post" asp-page-handler="AddTaskToList">-->
+    <div id="placeholderForTasks"></div>
+        
+    <!--<input asp-for="@Model.taskDescription" />-->
+
+    
+    <button id="addTaskButton">Add task</button>
+    <button id="submitButton" type="submit">Submit</button>
+    <!--<button type="submit">Submit</button>-->
+
 </form>
-    <form method="postAddTaskToList">
-        <div id="placeholderForTasks"></div>
-        <button id="addTaskButton" type="submit">Add task</button>
-    </form>
     
 
 

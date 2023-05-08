@@ -8,7 +8,8 @@ const placeHolder = document.getElementById("placeholderForTasks");
 addTaskButton.addEventListener("click", function (event) {
     event.preventDefault();
     let nextinput = document.createElement("input");
-    nextinput.setAttribute("asp-for", "taskDescription");
+    nextinput.setAttribute("name", "task");
+   
     placeHolder.appendChild(nextinput);
-    
-})
+
+});

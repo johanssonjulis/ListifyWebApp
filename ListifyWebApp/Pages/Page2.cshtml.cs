@@ -21,36 +21,45 @@ namespace ListifyWebApp.Pages
 
         [BindProperty]
         public string taskDescription { get; set; }
-        public static List<ItemTask> items = new List<ItemTask>();
+        public List<ItemTask> items { get; set; } = new List<ItemTask>(); 
 
         public void OnGet()
         {
         
         }
-        public IActionResult OnPostAddTaskToList() 
+        public void OnPostAddTaskToList(string[] task) 
         {
-            ItemTask itemTask = new ItemTask()
-            {
-                TaskDescription = taskDescription
-            };
-            items.Add(itemTask);
-            db.Task.Add(itemTask);
-            db.SaveChanges();
-            return RedirectToPage("Page2");
+            
+            
             
 
         }
-        public IActionResult OnPost()
+        public IActionResult OnPostAddListify(string[] task)
         {
+            for (int i = 0; i < task.Length; i++)
+            {
+                ItemTask itemTask = new ItemTask()
+                {
+                    TaskDescription = task[i]
+                };
+
+                items.Add(itemTask);
+
+            }
+
             Listify listify = new Listify() {
                 Name = listname,
                 tasks = items
         };
-             
-            
+
             db.Listify.Add(listify);
+            for (int i = 0; i < items.Count; i++)
+            {
+                db.Task.Add(items[i]);
+            }
             db.SaveChanges();
             return RedirectToPage("Page3");
+
         }
     }
 }
