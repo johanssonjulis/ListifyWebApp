@@ -6,15 +6,18 @@
 <link href="~/css/Page3.css" rel="stylesheet" />
 <div id="displaybox">
 
-    @foreach (Models.Listify listifies in Model.Listifies)
+    @foreach (var listify in Model.Listifies)
     {
+        <form method="post" >
         <div class="row">
             <div class="col-4">
                 <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">@listifies.Name</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">@listifies.tasks</a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">@listifies.tasks</a>
-                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">@listifies.tasks</a>
+                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home" asp-for=@listify.Id name="id">@listify.Name</a>
+                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">@listify.tasks</a>
+                        <button type="submit" asp-page-handler="Update" href="~/Pages/Update/@listify.Id">Edit/Delete</button>
+
+                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">@listify.tasks</a>
+                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">@listify.tasks</a>
                 </div>
             </div>
             <div class="col-8">
@@ -26,10 +29,11 @@
                 </div>
             </div>
         </div>
+        </form>
 
 
     }
-    </div>
+</div>
 <aside>
     <div class="addbutton"><button class="btn btn-primary" type="submit"><a asp-page="Page2" role="button">Add List / Edit list</a></button></div>
 </aside>
