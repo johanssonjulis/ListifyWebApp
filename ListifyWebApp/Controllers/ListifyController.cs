@@ -38,7 +38,17 @@ namespace ListifyWebApp.Controllers
             }
             return listify;
 
+        }
 
+        [HttpGet]
+        public ActionResult<Listify> GetListifyById(int id)
+        {
+            Listify listify = db.Listify.Find(id);
+            if (listify != null)
+            {
+                return Ok(listify);
+            }
+            return BadRequest();
         }
     }
 }
