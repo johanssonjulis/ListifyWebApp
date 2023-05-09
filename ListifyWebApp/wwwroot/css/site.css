@@ -60,3 +60,7 @@ body > footer{
     font-size: 16px;
     border-radius: 12px;
 }
+#lolol{
+    display:inline;
+    place-content:center;
+}
