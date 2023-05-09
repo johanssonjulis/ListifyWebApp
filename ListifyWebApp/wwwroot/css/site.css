@@ -27,7 +27,7 @@ main {
 }
 aside {
     float: left; /* vet inte den här koden!*/
-    height: 100vh;
+    height: 100%;
     background-color: #868686;
     width: 15vw;
     top: 15vh;
@@ -49,7 +49,7 @@ body > footer{
 
 
 #lol {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; /* Green button */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -60,3 +60,13 @@ body > footer{
     font-size: 16px;
     border-radius: 12px;
 }
+
+aside {
+    float: left; /* vet inte den här koden!*/
+    height: 100vh;
+    background-color: #868686;
+    width: 15vw;
+    top: 15vh;
+    left: 0;
+}
+

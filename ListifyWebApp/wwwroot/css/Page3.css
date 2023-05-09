@@ -1,17 +1,2 @@
 ﻿body {
 }
-
-#buttonpage3{
-	color:gold;
-	
-}
-
-aside {
-	float: left; /* vet inte den här koden!*/
-	height: 100vh;
-	background-color: #868686;
-	width: 15vw;
-	top: 15vh;
-	left: 0;
-}
-
