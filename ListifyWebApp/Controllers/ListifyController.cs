@@ -50,5 +50,18 @@ namespace ListifyWebApp.Controllers
             }
             return BadRequest();
         }
+
+        [HttpDelete]
+        public ActionResult DeleteListifyById(int id)
+        {
+            Listify listify = db.Listify.Find(id);
+            if(listify != null)
+            {
+                db.Listify.Remove(listify); 
+                db.SaveChanges();
+            }
+            return BadRequest();
+        }
+
     }
 }
