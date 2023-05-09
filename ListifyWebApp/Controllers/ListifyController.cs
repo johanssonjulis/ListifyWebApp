@@ -24,20 +24,8 @@ namespace ListifyWebApp.Controllers
         [HttpPost]
         public void PostListify([FromBody] Listify listify)
         {
-
             db.Listify.Add(listify);
             db.SaveChanges();
-        }
-
-        [HttpPut]
-        public Listify PutListify([FromBody] Listify listify)
-        {
-            if (listify.Id <= 0)
-            {
-                //return BadRequest("");
-            }
-            return listify;
-
         }
 
         [HttpGet]
@@ -61,6 +49,17 @@ namespace ListifyWebApp.Controllers
                 db.SaveChanges();
             }
             return BadRequest();
+        }
+
+        [HttpPut]
+        public ActionResult EditListify([FromBody] Listify listify)
+        {
+            if (listify != null)
+            {
+                db.Listify.Update(listify); 
+                db.SaveChanges();
+            }
+            return Ok();
         }
 
     }
