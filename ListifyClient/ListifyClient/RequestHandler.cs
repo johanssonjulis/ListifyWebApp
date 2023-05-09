@@ -67,10 +67,39 @@ namespace ListifyClient
         }
         public void Put() 
         {
-        
+            HttpClient httpClient = new HttpClient();
+            Uri uri = new Uri("https://localhost:7277/api/Listify");
+
+            HttpResponseMessage response = httpClient.GetAsync(uri).Result;
+
+
+            Console.WriteLine("Status Code: " + (int)response.StatusCode);
+            Console.WriteLine("Means: " + response.StatusCode);
+
+
+            string text = response.Content.ReadAsStringAsync().Result;
+
+
+            Console.WriteLine(text);
+
+
         }
         public void Delete() 
         {
+            HttpClient httpClient = new HttpClient();
+            Uri uri = new Uri("https://localhost:7277/api/Listify");
+
+            HttpResponseMessage response = httpClient.DeleteAsync(uri).Result;
+
+
+            Console.WriteLine("Status Code: " + (int)response.StatusCode);
+            Console.WriteLine("Means: " + response.StatusCode);
+
+
+            string text = response.Content.ReadAsStringAsync().Result;
+
+
+            Console.WriteLine(text);
 
         }
     }
