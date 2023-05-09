@@ -1,10 +1,10 @@
-@font-face {
+
+/*@font-face {
     font-family:"Headlinetext";
     src: url("~/NewFolder2/Waterfall/Waterfall-Regular.ttf") format('truetype');
     font-weight: normal;
     font-style: normal;
-}
-
+}**/
 html {
     height: 100%;
 }
@@ -40,14 +40,20 @@ body > footer{
     position:sticky;
     top: 100vh;
 }
-#Waterfall{
-    font-family:"Headlinetext";
+#Headlinetext {
+    font-family: Lucida Handwriting;
     display: flex;
-    justify-content: center;
-    text-decoration: none;
+    justify-content: space-around;
+    justify-content:left;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 350%;
+    color:black;
 }
-
-
+#textunderline{
+    text-decoration:none;
+ 
+}
 #lol {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -59,4 +65,5 @@ body > footer{
     display: inline-block;
     font-size: 16px;
     border-radius: 12px;
+
 }
