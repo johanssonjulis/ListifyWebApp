@@ -43,6 +43,7 @@ body > footer{
     font-style: normal;
     font-size: 350%;
     color:black;
+    margin-left:50px;
 }
 #textunderline{
     text-decoration:none;

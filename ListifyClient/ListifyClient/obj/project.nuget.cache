@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mVOng4vrXqZYZgora2RvM6Nisk0oAgtfuDSjVG0u3lmP/YA/LOHoGD9WdD2YSdgxnGDTo/gfBfdApyBXbCPTpw==",
+  "dgSpecHash": "Fpk4Nf0VQ05vnANcNxN+hz1tBts46UX842I87rBxXxKTWvo7kkcdV6kPPWuin3aYay/pf1tEB685z4AO9DghPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Malin Chramer\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+  "projectFilePath": "C:\\Users\\olivi\\CodeProjects\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Malin Chramer\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\olivi\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
