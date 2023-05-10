@@ -64,3 +64,6 @@ body > footer{
     display:inline;
     place-content:center;
 }
+#displayBoxUpdate{
+    display:inline-block;
+}

@@ -16,18 +16,27 @@ namespace ListifyWebApp.Pages
         public Listify listify { get; set; }
 
         [BindProperty]
-        public List<ItemTask> tasks { get; set; }
+        public List<ItemTask> Tasks { get; set; } = new List<ItemTask>();
+
+
+        public int ListifyId;
 
         public UpdateModel(DatabaseContext db)
         {
             this.db = db;
+           
         }
 
-        public void OnGet(int listifyId)
+        public void OnGet(int Id)
         {
-            listify = db.Listify
-                .Include( l => l.tasks)
-                .SingleOrDefault(l => l.Id == listifyId);
+            Console.WriteLine("This function is called!");
+            ListifyId = Id;
+
+            this.listify = db.Listify
+                     .Include( l => l.tasks)
+                     .SingleOrDefault(l => l.Id == Id);
+           
+            
             
         }
     }

@@ -1,10 +1,18 @@
-﻿@page "{id?}"
+﻿@page 
 @using ListifyWebApp.Models;
 @model ListifyWebApp.Pages.UpdateModel
 @{
 }
+
 <p>ost</p>
-<p>@listify.Name</p>
+<input asp-for="@Model.listify.Name"/>
+@foreach(var item in Model.listify.tasks)
+{
+    <input asp-for="@item.TaskDescription">
+    
+}
 
 
-   
+
+
+

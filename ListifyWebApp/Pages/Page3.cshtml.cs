@@ -26,6 +26,11 @@ namespace ListifyWebApp.Pages
             Listifies = db.Listify.ToList();
         }
         
+        public void OnPost(int id)
+        {
+            Response.Redirect("Update?Id=" + id);
+            
+        }
     }
 }
 
