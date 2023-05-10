@@ -1,13 +1,18 @@
-﻿@page "{id?}"
+﻿@page 
 @using ListifyWebApp.Models;
 @model ListifyWebApp.Pages.UpdateModel
 @{
 }
 
-<p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
-<p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p><p>namejddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
-<p>@Model.listify.Name</p>
-@foreach (ItemTask task in  Model.listify.tasks)
+<p>ost</p>
+<input asp-for="@Model.listify.Name"/>
+@foreach(var item in Model.listify.tasks)
 {
-    <p>listify.tasks</p>
+    <input asp-for="@item.TaskDescription">
+    
 }
+
+
+
+
+
