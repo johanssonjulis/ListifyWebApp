@@ -13,14 +13,16 @@
             <a id="textunderline" asp-page="/Index"><p id="Headlinetext">Listify</p></a>
         </div>
      </header>
-    <aside>
-        <div class="addbutton"><button class="btn btn-primary" type="submit"><a asp-page="Page2" role="button">Add List / Edit list</a></button></div>
-        <div class="Viewbutton"><button class="btn btn-primary" type="submit"><a asp-page="Page3" role="button">View List</a></button></div>
-        <button id="lol" type="submit"><a asp-page="Page2" role="button">Add List / Edit list</a></button>
-    </aside>
-    <main>
-        @RenderBody()
-    </main> 
+     <div id="grid">
+        <aside>
+            <div class="addbutton"><button class="btn btn-primary" type="submit"><a asp-page="Page2" role="button">Add List / Edit list</a></button></div>
+            <div class="Viewbutton"><button class="btn btn-primary" type="submit"><a asp-page="Page3" role="button">View List</a></button></div>
+            <button id="lol" type="submit"><a asp-page="Page2" role="button">Add List / Edit list</a></button>
+        </aside>
+        <main>
+            @RenderBody()
+        </main> 
+    </div>
     <footer>
        <p>Footer.</p>
     </footer>
