@@ -163,4 +163,8 @@ aside {
 #deleteButton:hover {
     box-shadow: 10px 0px 0px 10px rgb(255, 255, 255)
 }
-
+.divForAddList {
+    padding: 20px;
+    background-color: #F4F3EE;
+    border: solid 5px black;
+}
