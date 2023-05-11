@@ -17,6 +17,7 @@ body {
     padding: 0;
     height: 100%;
     background-color: #F4F3EE;
+
 }
 footer {
     background-color: #463F3A;
@@ -34,6 +35,9 @@ header {
 
 main {
     background-color: #F4F3EE;
+    display: flex;
+    align-items:baseline;
+    justify-content:center;
     margin-top: 15vh;
     grid-column: 2;
 }
@@ -168,3 +172,61 @@ aside {
     background-color: #F4F3EE;
     border: solid 5px #463F3A;
 }
+.wrapper {
+    display: flex;
+}
+
+    .wrapper .static-txt {
+        color: #463F3A;
+        font-size: 60px;
+        font-weight: 400;
+    }
+
+    .wrapper .dynamic-txts {
+        margin-left: 15px;
+        height: 90px;
+        line-height: 90px;
+        overflow: hidden;
+    }
+
+.dynamic-txts li {
+    list-style: none;
+    color: #E0AFA0;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(4) infinite;
+}
+
+@keyframes slide {
+    100% {
+        top: -360px;
+    }
+}
+
+.dynamic-txts li span {
+    position: relative;
+    margin: 5px 0;
+    line-height: 80px;
+}
+
+    .dynamic-txts li span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #F4F3EE;
+        border-left: 2px solid #FC6D6D;
+        animation: typing 3s steps(10) infinite;
+    }
+
+@keyframes typing {
+    40%, 60% {
+        left: calc(100% + 30px);
+    }
+
+    100% {
+        left: 0;
+    }

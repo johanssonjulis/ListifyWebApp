@@ -26,6 +26,7 @@ namespace ListifyWebApp.Controllers
         public void PostListify([FromBody] Listify listify)
         {
             db.Listify.Add(listify);
+            
             db.SaveChanges();
         }
 
