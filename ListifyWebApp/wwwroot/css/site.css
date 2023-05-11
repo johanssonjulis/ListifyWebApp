@@ -8,30 +8,40 @@
 html {
     height: 100%;
 }
-body{
-    margin:0;
-    padding:0;
-    height: 100%;
+a {
+    text-decoration: none;
+    color: #F4F3EE
 }
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #F4F3EE;
+}
+footer {
+    background-color: #463F3A;
+}
+
 
 header {
     position: fixed;
     height: 80px;
     width: 100vw;
-    background-color: #F3D3BD;
-    top:0;
+    background-color: #E0AFA0;
+    top: 0;
     z-index: 9;
 }
 
 main {
+    background-color: #F4F3EE;
     margin-top: 15vh;
     grid-column: 2;
 }
-body > footer{
-    clear:both; /* vet inte den här koden!*/
+body > footer {
+    clear: both; /* vet inte den här koden!*/
     width: 100vw;
-    background-color: #5E5E5E;
-    position:sticky;
+    background-color: #463F3A;
+    position: sticky;
     top: 100%;
 }
 #Headlinetext {
@@ -56,8 +66,9 @@ body > footer{
     grid-template-rows: auto;
 }
 
-#lol {
-    background-color: #4CAF50; /* Green button */
+#buttonEditDelete {
+    /*background-color: #4CAF50; /* Green button */
+    background-color: #463F3A;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -67,19 +78,89 @@ body > footer{
     display: inline-block;
     font-size: 16px;
     border-radius: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%
+}
+#buttonViewList {
+    /*background-color: #4CAF50; /* Green button */
+    background-color: #463F3A;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    padding: 10px;
+    width: 100%;
 }
 
 aside {
     float: left; /* vet inte den här koden!*/
     height: 100%;
-    background-color: #868686;
+    background-color: #8A817C;
     top: 15vh;
     left: 0;
     grid-column: 1;
     min-height: 1000px;
 }
-.divForTasks{
-padding:
+.divForTasks {
+    display: flex;
+    width: 50%;
+    
+    padding: 20px;
+    border: solid 1px black;
+    margin: 5px;
+}
+.displayboxUpdate {
+    padding: 20px;
+    background-color: #F4F3EE;
+    border: solid 5px black;
+}
+#saveButton {
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+    width: 60px;
+    border: 0px;
+    cursor: pointer;
+    background-color:transparent;
+}
+#saveImg{
+    height:30px;
+    width: 30px;
+}
+#deleteButton {
+    font-family: Arial;
+    font-size: 10pt;
+    font-weight: normal;
+    height: 30px;
+    line-height: 30px;
+    width: 60px;
+    border: 0px;
+    cursor: pointer;
+    background-color: transparent;
 }
 
+#deleteImg {
+    height: 30px;
+    width: 30px;
+}
+
+.inputWindow {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.button {
+    transition-duration: 0.4s;
+}
+#deleteButton:hover {
+    box-shadow: 10px 0px 0px 10px rgb(255, 255, 255)
+}
 
