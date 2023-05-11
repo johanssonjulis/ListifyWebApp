@@ -186,7 +186,11 @@ aside {
     background-color: #F4F3EE;
     border: solid 5px #463F3A;
     width: 50%;
-    box-shadow: 10px 10px 10px 10px #463F3A;
+}
+    .divForAddList:hover {
+        box-shadow: 10px 10px 10px 10px #463F3A;
+    
+    
 }
 .wrapper {
     display: flex;
