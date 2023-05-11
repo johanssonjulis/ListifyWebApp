@@ -8,7 +8,23 @@
 
     @foreach (var listify in Model.Listifies)
     {
+        
         <form method="post" asp-route-id="@listify.Id">
+            <div class="btn-group dropright">
+                <button type="button" class="btn btn-secondary">
+                    Edit
+                </button>
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropright</span>
+                </button>
+                <div class="dropdown-menu">
+                    @foreach (Models.ItemTask item in listify.tasks)
+                    {
+                        <p>@item.TaskDescription</p>
+                    }
+                    <!-- Dropdown menu links -->
+                </div>
+            </div>
         <div class="row">
             <div class="col-4">
                 <div class="list-group" id="list-tab" role="tablist">
@@ -18,14 +34,6 @@
 
                     <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">@listify.tasks</a>
                     <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">@listify.tasks</a>
-                </div>
-            </div>
-            <div class="col-8">
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
-                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-                    <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
                 </div>
             </div>
         </div>

@@ -118,7 +118,7 @@ aside {
 .displayboxUpdate {
     padding: 20px;
     background-color: #F4F3EE;
-    border: solid 5px black;
+    border: solid 5px #463F3A;
 }
 #saveButton {
     font-family: Arial;
@@ -166,5 +166,5 @@ aside {
 .divForAddList {
     padding: 20px;
     background-color: #F4F3EE;
-    border: solid 5px black;
+    border: solid 5px #463F3A;
 }

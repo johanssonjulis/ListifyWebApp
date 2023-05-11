@@ -2,8 +2,7 @@ using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
-
+using Microsoft.EntityFrameworkCore;
 
 namespace ListifyWebApp.Pages
 {
@@ -20,10 +19,13 @@ namespace ListifyWebApp.Pages
         public Listify listify { get; set; }
         [BindProperty]
         public List<Listify> Listifies { get; set; }
+
+        [BindProperty]
+        public ItemTask itemTask { get; set; }
        
         public void OnGet()
         {
-            Listifies = db.Listify.ToList();
+            Listifies = db.Listify.Include(t => t.tasks).ToList();
         }
         
         public void OnPost(int id)

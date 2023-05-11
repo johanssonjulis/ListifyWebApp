@@ -1,6 +1,7 @@
 ﻿using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace ListifyWebApp.Controllers
@@ -31,12 +32,16 @@ namespace ListifyWebApp.Controllers
         [HttpGet]
         public ActionResult<Listify> GetListifyById(int id)
         {
-            Listify listify = db.Listify.Find(id);
+            Listify listify = db.Listify
+                     .Include(l => l.tasks)
+                     .SingleOrDefault(l => l.Id == id);
+            return listify;
+            /*Listify listify = db.Listify.Find(id);
             if (listify != null)
             {
                 return Ok(listify);
             }
-            return BadRequest();
+            return BadRequest();*/
         }
 
         [HttpDelete]
