@@ -7,9 +7,12 @@ const placeHolder = document.getElementById("placeholderForTasks");
 
 addTaskButton.addEventListener("click", function (event) {
     event.preventDefault();
+    let container = document.createElement("div");
+  
     let nextinput = document.createElement("input");
     nextinput.setAttribute("name", "task");
+    placeHolder.append(container);
    
-    placeHolder.appendChild(nextinput);
+    container.appendChild(nextinput);
 
 });

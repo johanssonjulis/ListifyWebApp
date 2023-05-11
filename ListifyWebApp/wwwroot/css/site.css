@@ -52,12 +52,12 @@ body > footer {
     font-family: Lucida Handwriting;
     display: flex;
     justify-content: space-around;
-    justify-content:left;
+    justify-content: left;
     font-weight: normal;
     font-style: normal;
     font-size: 350%;
-    color:black;
-    margin-left:50px;
+    color: #463F3A;
+    margin-left: 50px;
 }
 #textunderline{
     text-decoration:none;
