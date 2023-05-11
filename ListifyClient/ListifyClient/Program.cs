@@ -4,13 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Output output = new Output();
+            ListifyMenu output = new ListifyMenu();
             RequestHandler request = new RequestHandler();
 
             while (true) 
             {
                 
-                output.DisplayOptions();
+                output.DisplayMenu();
 
                 request.Post();
                 request.Request();

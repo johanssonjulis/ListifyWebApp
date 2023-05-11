@@ -1,6 +1,7 @@
 ﻿using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace ListifyWebApp.Controllers
@@ -21,24 +22,37 @@ namespace ListifyWebApp.Controllers
             return db.Listify.ToList();
         }
 
+        [Route("PostList")]
         [HttpPost]
         public void PostListify([FromBody] Listify listify)
         {
             db.Listify.Add(listify);
+
+            for (int i = 0; i < listify.tasks.Count; i++)
+            {
+                db.Task.Add(listify.tasks[i]);
+            }
+
             db.SaveChanges();
         }
 
+        [Route("GetListifyById")]
         [HttpGet]
         public ActionResult<Listify> GetListifyById(int id)
         {
-            Listify listify = db.Listify.Find(id);
+
+            Listify listify = db.Listify.Include(l => l.tasks).SingleOrDefault(l => l.Id == id);
+            return listify;
+
+            /*Listify listify = db.Listify.Find(id);
             if (listify != null)
             {
                 return Ok(listify);
             }
-            return BadRequest();
+            return BadRequest();*/
         }
 
+        [Route("Delete")]
         [HttpDelete]
         public ActionResult DeleteListifyById(int id)
         {
@@ -51,6 +65,7 @@ namespace ListifyWebApp.Controllers
             return BadRequest();
         }
 
+        [Route("Edit")]
         [HttpPut]
         public ActionResult EditListify([FromBody] Listify listify)
         {

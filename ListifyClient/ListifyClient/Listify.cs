@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ListifyClient
@@ -10,9 +11,15 @@ namespace ListifyClient
     public class Listify
     {
         [Key]
+
+        [JsonPropertyName("id")]
         public int Id { get; set; }
+
+        [JsonPropertyName("name")]
         public string Name { get; set; }
-        public List<ItemTask> tasks { get; set; }
+
+        [JsonPropertyName("tasks")]
+        public List<ItemTask>? tasks { get; set; }
 
         public Listify(int id, string name)
         {
@@ -22,7 +29,7 @@ namespace ListifyClient
         }
         public Listify()
         {
-            tasks = new List<ItemTask>();
+            
         }
     }
 
