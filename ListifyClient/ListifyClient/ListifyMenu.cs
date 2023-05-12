@@ -125,8 +125,36 @@ namespace ListifyClient
 
         private void Put()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("What is the id nr of the list you want to update?");
+            string listId = Console.ReadLine();
+            int listIdInt = int.Parse(listId);
+
+            Console.WriteLine("Enter the new name for the list:");
+            string newListName = Console.ReadLine();
+
+            var listify = new Listify() { Id = listIdInt, Name = newListName };
+
+            HttpClient httpClient = new HttpClient();
+            Uri uri = new Uri("https://localhost:7277/api/Listify/UpdateList");
+
+            string json = System.Text.Json.JsonSerializer.Serialize(listify);
+            Console.WriteLine(json); //skriver ut listan i json
+
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = httpClient.PutAsync(uri, stringContent).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"{listify.Id} updated!");
+            }
+            else
+            {
+                Console.WriteLine("Put failed. Status Code " + (int)response.StatusCode + ": " + response.StatusCode);
+            }
+            
         }
+
 
         private void Delete()
         {

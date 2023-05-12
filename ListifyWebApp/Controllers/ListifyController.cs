@@ -88,16 +88,23 @@ namespace ListifyWebApp.Controllers
         }
         */
 
-        [Route("Edit")]
+        [Route("UpdateList/{id}")]
         [HttpPut]
         public ActionResult EditListify([FromBody] Listify listify)
         {
-            if (listify != null)
+            if (listify == null)
             {
-                db.Listify.Update(listify); 
-                db.SaveChanges();
+                return BadRequest();
             }
+            var ListifyToUpdate = db.Listify.FirstOrDefault(l => l.Name == listify.Name);
+            if (ListifyToUpdate == null)
+            {
+                return NotFound();
+            }
+            ListifyToUpdate.Name = listify.Name;
+            db.SaveChanges();
             return Ok();
+                       
         }
 
     }
