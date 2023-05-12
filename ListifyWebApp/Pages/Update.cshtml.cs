@@ -18,6 +18,11 @@ namespace ListifyWebApp.Pages
         [BindProperty]
         public List<ItemTask> Tasks { get; set; } = new List<ItemTask>();
 
+        [BindProperty]
+        public ItemTask itemTask { get; set; }
+        [BindProperty]
+        public string info { get; set; }
+
 
         public int ListifyId;
 
@@ -35,9 +40,24 @@ namespace ListifyWebApp.Pages
             this.listify = db.Listify
                      .Include( l => l.tasks)
                      .SingleOrDefault(l => l.Id == Id);
+            Tasks = listify.tasks;
+
            
             
             
+        }
+        public void OnPost(int id, string info)
+        {
+            ItemTask item = db.Task.SingleOrDefault(t => t.Id == id);
+            if (item != null)
+            {
+                item.TaskDescription = info;
+                db.Task.Update(item);
+                db.SaveChanges();
+                OnGet(id);
+            }
+            
+
         }
     }
 }

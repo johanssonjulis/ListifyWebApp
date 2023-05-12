@@ -6,23 +6,32 @@
 
 
 <div class="displayboxUpdate">
-<a >
+    
+    <div id="inputName">
     <input asp-for="@Model.listify.Name" />
-</a>
-@foreach(var item in Model.listify.tasks)
-{
-    <div class="divForTasks">
-    <a class="inputWindow"> <input asp-for="@item.TaskDescription"></a>
-            <button id="saveButton"  runat="server">
-                    <img id="saveImg" src="~/Resorses/pics/Save-Button.png" />
-                    </button>
-            <button id="deleteButton" runat="server">
-                <img id="deleteImg" src="~/Resorses/pics/Trash-Bin.png" />
+        @foreach (Models.ItemTask itemTask in @Model.Tasks)
+    {
+            
+       <form method="post" asp-route-id="@itemTask.Id">
+           <div class="divForTasks">
+            <a class="inputWindow"> <input name="info" asp-for="@itemTask.TaskDescription"></a>
+            <button id="saveButton" type="submit" runat="server">
+              <img id="saveImg" src="~/Resorses/pics/Save-Button.png" />
             </button>
-                    </div>
-
-}
+            <button id="deleteButton" runat="server">
+               <img id="deleteImg" src="~/Resorses/pics/Trash-Bin.png" />
+           </button>
+           </div>
+       </form>
+        }
     </div>
+</div>
+        
+
+
+
+
+   
 
 
 

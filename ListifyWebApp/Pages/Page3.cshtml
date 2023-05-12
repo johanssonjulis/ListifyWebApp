@@ -11,37 +11,46 @@
         
         <form method="post" asp-route-id="@listify.Id">
             <div class="btn-group dropright">
-                <button type="button" class="btn btn-secondary">
+                <button type="submit"  class="btn btn-secondary">
                     Edit
                 </button>
-                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Toggle Dropright</span>
+                <button type="button" onclick="dropdownFunction()" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">@listify.Name</span>
                 </button>
-                <div class="dropdown-menu">
-                    @foreach (Models.ItemTask item in listify.tasks)
+                <div id="dropDown" class="dropdown-content">
+
+                    @foreach (Models.ItemTask itemTask in listify.tasks)
                     {
-                        <p>@item.TaskDescription</p>
+                        <a><p>@itemTask.TaskDescription</p></a>
                     }
                     <!-- Dropdown menu links -->
                 </div>
             </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home" asp-for=@listify.Id name="Id">@listify.Name</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">@listify.tasks</a>
-                        <button type="submit"  >Edit/Delete</button>
-
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">@listify.tasks</a>
-                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">@listify.tasks</a>
-                </div>
-            </div>
-        </div>
+        
         </form>
+        @foreach (Models.ItemTask itemTask in listify.tasks)
+        {
+            <p>@itemTask.TaskDescription</p>
+        }
 
 
     }
 </div>
+
+<div class="divdropdown">
+    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+    </div>
+</div>
+
+
+<script src="~/js/site.js"></script>
+
+
+
 
 
 
