@@ -52,8 +52,28 @@ namespace ListifyWebApp.Controllers
             return BadRequest();*/
         }
 
-        [Route("Delete")]
+        [Route("Delete/{id}")]
         [HttpDelete]
+        public ActionResult DeleteListifyById(int id)
+        {
+            Listify listify = db.Listify.Include(l => l.tasks).SingleOrDefault(l => l.Id == id);
+            if (listify != null)
+            {
+                // Remove associated tasks first
+                foreach (var task in listify.tasks)
+                {
+                    db.Task.Remove(task);
+                }
+
+                // Then remove the listify entity
+                db.Listify.Remove(listify);
+                db.SaveChanges();
+                return NoContent();
+            }
+            return NotFound();
+        }
+
+        /*
         public ActionResult DeleteListifyById(int id)
         {
             Listify listify = db.Listify.SingleOrDefault(l => l.Id == id);
@@ -61,9 +81,12 @@ namespace ListifyWebApp.Controllers
             {
                 db.Listify.Remove(listify); 
                 db.SaveChanges();
+                return NoContent();
             }
-            return BadRequest();
+            return NotFound();
+
         }
+        */
 
         [Route("Edit")]
         [HttpPut]

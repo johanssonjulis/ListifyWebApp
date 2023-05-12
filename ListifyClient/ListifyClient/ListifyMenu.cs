@@ -123,18 +123,18 @@ namespace ListifyClient
             }
         }
 
-        void Put()
+        private void Put()
         {
             throw new NotImplementedException();
         }
 
-        void Delete()
+        private void Delete()
         {
             Console.WriteLine("Please write the id nr of the list you want to delete.");
             string listId = Console.ReadLine();
 
             HttpClient client = new HttpClient();
-            Uri uri = new Uri("https://localhost:7277/api/Listify/Delete" + listId);
+            Uri uri = new Uri("https://localhost:7277/api/Listify/Delete/" + listId);
 
             HttpResponseMessage response = client.DeleteAsync(uri).Result;
             if (response.IsSuccessStatusCode)
@@ -145,6 +145,7 @@ namespace ListifyClient
             {
                 Console.WriteLine("Error. " + response.ReasonPhrase);
             }
+
         }
     }
 }
