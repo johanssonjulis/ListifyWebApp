@@ -56,7 +56,7 @@ namespace ListifyWebApp.Controllers
         [HttpDelete]
         public ActionResult DeleteListifyById(int id)
         {
-            Listify listify = db.Listify.Find(id);
+            Listify listify = db.Listify.SingleOrDefault(l => l.Id == id);
             if(listify != null)
             {
                 db.Listify.Remove(listify); 
