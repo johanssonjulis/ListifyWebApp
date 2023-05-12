@@ -16,11 +16,20 @@ namespace ListifyWebApp.Pages
         {
             this.db = db;
         }
+        [BindProperty]
+        public Listify listify { get; set; }
+        [BindProperty]
         public List<Listify> Listifies { get; set; }
        
         public void OnGet()
         {
             Listifies = db.Listify.ToList();
+        }
+        
+        public void OnPost(int id)
+        {
+            Response.Redirect("Update?Id=" + id);
+            
         }
     }
 }

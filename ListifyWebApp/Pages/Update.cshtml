@@ -1,0 +1,32 @@
+﻿@page 
+@using ListifyWebApp.Models;
+@model ListifyWebApp.Pages.UpdateModel
+@{
+}
+
+
+<div class="displayboxUpdate">
+<a >
+    <input asp-for="@Model.listify.Name" />
+</a>
+@foreach(var item in Model.listify.tasks)
+{
+    <div class="divForTasks">
+    <a class="inputWindow"> <input asp-for="@item.TaskDescription"></a>
+            <button id="saveButton"  runat="server">
+                    <img id="saveImg" src="~/Resorses/pics/Save-Button.png" />
+                    </button>
+            <button id="deleteButton" runat="server">
+                <img id="deleteImg" src="~/Resorses/pics/Trash-Bin.png" />
+            </button>
+                    </div>
+
+}
+    </div>
+
+
+
+
+
+
+
