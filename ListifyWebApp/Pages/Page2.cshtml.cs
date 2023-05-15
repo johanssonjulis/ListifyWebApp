@@ -16,8 +16,9 @@ namespace ListifyWebApp.Pages
             this.db = db;
         }
 
+        
         [BindProperty]
-        public string listname { get; set; }
+        public Listify listify { get; set; }
 
         [BindProperty]
         public string taskDescription { get; set; }
@@ -27,15 +28,11 @@ namespace ListifyWebApp.Pages
         {
         
         }
-        public void OnPostAddTaskToList(string[] task) 
-        {
-            
-            
-            
-
-        }
+       
         public IActionResult OnPostAddListify(string[] task)
         {
+
+            
             for (int i = 0; i < task.Length; i++)
             {
                 ItemTask itemTask = new ItemTask()
@@ -47,18 +44,24 @@ namespace ListifyWebApp.Pages
 
             }
 
-            Listify listify = new Listify() {
-                Name = listname,
-                tasks = items
-        };
+            listify.tasks = items;
+                
 
             db.Listify.Add(listify);
             for (int i = 0; i < items.Count; i++)
             {
                 db.Task.Add(items[i]);
-            }
+            } 
             db.SaveChanges();
+            
             return RedirectToPage("Page3");
+                
+               
+
+
+
+
+            
 
         }
     }
