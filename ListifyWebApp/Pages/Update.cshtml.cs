@@ -34,7 +34,7 @@ namespace ListifyWebApp.Pages
 
         public void OnGet(int Id)
         {
-            Console.WriteLine("This function is called!");
+            
             ListifyId = Id;
 
             this.listify = db.Listify
@@ -46,7 +46,7 @@ namespace ListifyWebApp.Pages
             
             
         }
-        public void OnPost(int id, string info)
+        public IActionResult OnPost(int id, string info)
         {
             ItemTask item = db.Task.SingleOrDefault(t => t.Id == id);
             if (item != null)
@@ -54,9 +54,10 @@ namespace ListifyWebApp.Pages
                 item.TaskDescription = info;
                 db.Task.Update(item);
                 db.SaveChanges();
-                OnGet(id);
+                return RedirectToPage("Page3");
             }
-            
+            return RedirectToPage("Page3");
+
 
         }
     }

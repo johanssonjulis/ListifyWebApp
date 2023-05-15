@@ -6,9 +6,12 @@
 
 
 <div class="displayboxUpdate">
+
+    
     
     <div id="inputName">
-    <input asp-for="@Model.listify.Name" />
+        <input asp-for="@Model.listify.Name" /> <div id="successMessage" hidden><p>Successfully changed</p>
+    </div>
         @foreach (Models.ItemTask itemTask in @Model.Tasks)
     {
             
@@ -26,6 +29,7 @@
         }
     </div>
 </div>
+<script src="~/js/site.js"/>
         
 
 
