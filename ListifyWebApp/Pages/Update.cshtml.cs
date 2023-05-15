@@ -47,14 +47,14 @@ namespace ListifyWebApp.Pages
             
             
         }
-        public ActionResult OnPostDeleteListify(int Id, string info, string saveListify, string deleteListify) 
+        public ActionResult OnPostDeleteListify(int Id, string infostring, string saveListify, string deleteListify) 
         {
             if (saveListify != null)
             {
                 Listify listify = db.Listify.SingleOrDefault(l => l.Id == Id);
                 if (listify != null)
                 {
-                    listify.Name = info;
+                    listify.Name = infostring;
                     db.Listify.Update(listify);
                     db.SaveChanges();
                     return RedirectToPage("Page3");
