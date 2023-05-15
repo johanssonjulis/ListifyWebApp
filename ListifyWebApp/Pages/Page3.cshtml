@@ -1,51 +1,36 @@
 ﻿@page
 @model ListifyWebApp.Pages.Page3Model
 @{
-    
+
 }
 <link href="~/css/Page3.css" rel="stylesheet" />
 <div id="displaybox">
 
     @foreach (var listify in Model.Listifies)
     {
-        
+
         <form method="post" asp-route-id="@listify.Id">
             <div class="btn-group dropright">
-                <button type="submit"  class="btn btn-secondary">
+                <button type="submit" class="btn btn-secondary">
                     Edit
                 </button>
-                <button type="button" onclick="dropdownFunction()" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">@listify.Name</span>
                 </button>
-                <div id="dropDown" class="dropdown-content">
-
-                    @foreach (Models.ItemTask itemTask in listify.tasks)
+                <div class="dropdown-menu">
+                    @foreach (Models.ItemTask item in listify.tasks)
                     {
-                        <a><p>@itemTask.TaskDescription</p></a>
+                        <p>@item.TaskDescription</p>
                     }
                     <!-- Dropdown menu links -->
                 </div>
             </div>
-        
+            <div class="row">
+                <div class="col-4">
+                </div>
+            </div>
         </form>
-        @foreach (Models.ItemTask itemTask in listify.tasks)
-        {
-            <p>@itemTask.TaskDescription</p>
-        }
 
 
     }
 </div>
-
-
-
-
-<script src="~/js/site.js"></script>
-
-
-
-
-
-
-
-

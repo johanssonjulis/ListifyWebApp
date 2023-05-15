@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 
 namespace ListifyWebApp.Models
 {
@@ -9,6 +10,7 @@ namespace ListifyWebApp.Models
 
         [Key] /*BLIR PRIMARYKEY*/
         public int Id { get; set; }
+        
         public string Name { get; set; }
         public List<ItemTask> tasks { get; set; }
 
