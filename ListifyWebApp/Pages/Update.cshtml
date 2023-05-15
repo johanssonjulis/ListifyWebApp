@@ -10,7 +10,13 @@
     
     
     <div id="inputName">
-        <input asp-for="@Model.listify.Name" /> <div id="successMessage" hidden><p>Successfully changed</p>
+        <form method="post" asp-page-handler="DeleteListify" asp-route-id="@Model.listify.Id">
+        <input name="info" asp-for="@Model.listify.Name" /> <button id="saveListify" type="submit" name="save" runat="server" value="save">
+            <img id="saveImg" src="~/Resorses/pics/Save-Button.png" />
+        </button>
+        <button id="deleteButton" type="submit" name="deleteListify" runat="server" value="delete">
+            <img id="deleteImg" src="~/Resorses/pics/Trash-Bin.png" />
+            </form>
     </div>
         @foreach (Models.ItemTask itemTask in @Model.Tasks)
     {

@@ -47,6 +47,32 @@ namespace ListifyWebApp.Pages
             
             
         }
+        public ActionResult OnPostDeleteListify(int Id, string info, string saveListify, string deleteListify) 
+        {
+            if (saveListify != null)
+            {
+                Listify listify = db.Listify.SingleOrDefault(l => l.Id == Id);
+                if (listify != null)
+                {
+                    listify.Name = info;
+                    db.Listify.Update(listify);
+                    db.SaveChanges();
+                    return RedirectToPage("Page3");
+                }
+            }
+            if (deleteListify != null)
+            {
+                Listify listify = db.Listify.Include(l => l.tasks).SingleOrDefault(l => l.Id == Id);
+                if (listify != null)
+                {
+                    db.Remove(listify);
+                    db.SaveChanges();
+                }
+                return RedirectToPage("Page3");
+            }
+
+            return RedirectToPage("Page3");
+        }
         public ActionResult OnPost(int id, string info, string save, string delete)
         {
             if (save != null) {
