@@ -1,5 +1,6 @@
 ﻿using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
+using ListifyWebApp.Pages.Viewholder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
@@ -88,22 +89,19 @@ namespace ListifyWebApp.Controllers
         }
         */
 
-        [Route("UpdateList/{id}")]
-        [HttpPut]
-        public ActionResult EditListify([FromBody] Listify listify)
+        //[Route("UpdateList")]
+        [HttpPut("update")]
+        public async Task<IActionResult> EditListify( int id, EditListify editListify)
         {
-            if (listify == null)
+            var input = await db.Listify.FindAsync(id);
+            if(input.Id != null)
             {
-                return BadRequest();
+                input.Name = editListify.Name;
+
+                await db.SaveChangesAsync();
+                return Ok(input);
             }
-            var ListifyToUpdate = db.Listify.FirstOrDefault(l => l.Name == listify.Name);
-            if (ListifyToUpdate == null)
-            {
-                return NotFound();
-            }
-            ListifyToUpdate.Name = listify.Name;
-            db.SaveChanges();
-            return Ok();
+            return BadRequest();
                        
         }
 

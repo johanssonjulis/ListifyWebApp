@@ -126,16 +126,15 @@ namespace ListifyClient
         private void Put()
         {
             Console.WriteLine("What is the id nr of the list you want to update?");
-            string listId = Console.ReadLine();
-            int listIdInt = int.Parse(listId);
+            int listIdInt = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Enter the new name for the list:");
             string newListName = Console.ReadLine();
 
-            var listify = new Listify() { Id = listIdInt, Name = newListName };
+            var listify = new EditListify() {Id=listIdInt, Name = newListName };
 
             HttpClient httpClient = new HttpClient();
-            Uri uri = new Uri("https://localhost:7277/api/Listify/UpdateList");
+            Uri uri = new Uri("https://localhost:7277/api/Listify/update?id=" + listIdInt);
 
             string json = System.Text.Json.JsonSerializer.Serialize(listify);
             Console.WriteLine(json); //skriver ut listan i json
@@ -146,7 +145,7 @@ namespace ListifyClient
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"{listify.Id} updated!");
+                Console.WriteLine($"Updated!");
             }
             else
             {
