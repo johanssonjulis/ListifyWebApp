@@ -3,6 +3,7 @@ using ListifyWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using System.Linq;
 
 namespace ListifyWebApp.Pages
@@ -46,16 +47,29 @@ namespace ListifyWebApp.Pages
             
             
         }
-        public IActionResult OnPost(int id, string info)
+        public ActionResult OnPost(int id, string info, string save, string delete)
         {
-            ItemTask item = db.Task.SingleOrDefault(t => t.Id == id);
-            if (item != null)
+            if (save != null) {
+                ItemTask item = db.Task.SingleOrDefault(t => t.Id == id);
+                if (item != null)
+                {
+                    item.TaskDescription = info;
+                    db.Task.Update(item);
+                    db.SaveChanges();
+                    return RedirectToPage("Page3");
+                }
+            }
+            if (delete != null)
             {
-                item.TaskDescription = info;
-                db.Task.Update(item);
-                db.SaveChanges();
+                ItemTask item = db.Task.SingleOrDefault(t => t.Id == id);
+                if(item != null)
+                {
+                    db.Remove(item);
+                    db.SaveChanges();
+                }
                 return RedirectToPage("Page3");
             }
+            
             return RedirectToPage("Page3");
 
 

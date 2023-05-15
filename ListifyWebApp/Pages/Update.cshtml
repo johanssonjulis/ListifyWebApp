@@ -16,12 +16,13 @@
     {
             
        <form method="post" asp-route-id="@itemTask.Id">
+                
            <div class="divForTasks">
             <a class="inputWindow"> <input name="info" asp-for="@itemTask.TaskDescription"></a>
-            <button id="saveButton" type="submit" runat="server">
+            <button id="saveButton" type="submit" name="save" runat="server" value="save">
               <img id="saveImg" src="~/Resorses/pics/Save-Button.png" />
             </button>
-            <button id="deleteButton" runat="server">
+            <button id="deleteButton" type="submit" name="delete" runat="server" value="delete">
                <img id="deleteImg" src="~/Resorses/pics/Trash-Bin.png" />
            </button>
            </div>
