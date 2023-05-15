@@ -1,5 +1,6 @@
 ﻿using ListifyWebApp.DataAccess;
 using ListifyWebApp.Models;
+using ListifyWebApp.Pages.Viewholder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
@@ -52,29 +53,56 @@ namespace ListifyWebApp.Controllers
             return BadRequest();*/
         }
 
-        [Route("Delete")]
+        [Route("Delete/{id}")]
         [HttpDelete]
         public ActionResult DeleteListifyById(int id)
         {
-            Listify listify = db.Listify.Find(id);
+            Listify listify = db.Listify.Include(l => l.tasks).SingleOrDefault(l => l.Id == id);
+            if (listify != null)
+            {
+                // Remove associated tasks first
+                foreach (var task in listify.tasks)
+                {
+                    db.Task.Remove(task);
+                }
+
+                // Then remove the listify entity
+                db.Listify.Remove(listify);
+                db.SaveChanges();
+                return NoContent();
+            }
+            return NotFound();
+        }
+
+        /*
+        public ActionResult DeleteListifyById(int id)
+        {
+            Listify listify = db.Listify.SingleOrDefault(l => l.Id == id);
             if(listify != null)
             {
                 db.Listify.Remove(listify); 
                 db.SaveChanges();
+                return NoContent();
+            }
+            return NotFound();
+
+        }
+        */
+
+        //[Route("UpdateList")]
+        [HttpPut("update")]
+        public async Task<IActionResult> EditListify( int id, EditListify editListify)
+        {
+            var input = await db.Listify.FindAsync(id);
+            if(input.Id != null)
+            {
+                input.Name = editListify.Name;
+
+                await db.SaveChangesAsync();
+                return Ok(input);
             }
             return BadRequest();
-        }
-
-        [Route("Edit")]
-        [HttpPut]
-        public ActionResult EditListify([FromBody] Listify listify)
-        {
-            if (listify != null)
-            {
-                db.Listify.Update(listify); 
-                db.SaveChanges();
-            }
-            return Ok();
+                       
         }
 
     }

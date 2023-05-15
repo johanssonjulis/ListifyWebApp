@@ -123,14 +123,56 @@ namespace ListifyClient
             }
         }
 
-        void Put()
+        private void Put()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("What is the id nr of the list you want to update?");
+            int listIdInt = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the new name for the list:");
+            string newListName = Console.ReadLine();
+
+            var listify = new EditListify() {Id=listIdInt, Name = newListName };
+
+            HttpClient httpClient = new HttpClient();
+            Uri uri = new Uri("https://localhost:7277/api/Listify/update?id=" + listIdInt);
+
+            string json = System.Text.Json.JsonSerializer.Serialize(listify);
+            Console.WriteLine(json); //skriver ut listan i json
+
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = httpClient.PutAsync(uri, stringContent).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Updated!");
+            }
+            else
+            {
+                Console.WriteLine("Put failed. Status Code " + (int)response.StatusCode + ": " + response.StatusCode);
+            }
+            
         }
 
-        void Delete()
+
+        private void Delete()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Please write the id nr of the list you want to delete.");
+            string listId = Console.ReadLine();
+
+            HttpClient client = new HttpClient();
+            Uri uri = new Uri("https://localhost:7277/api/Listify/Delete/" + listId);
+
+            HttpResponseMessage response = client.DeleteAsync(uri).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"List with id {listId} successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("Error. " + response.ReasonPhrase);
+            }
+
         }
     }
 }
