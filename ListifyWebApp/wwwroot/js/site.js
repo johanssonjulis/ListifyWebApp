@@ -4,8 +4,7 @@
 // Write your JavaScript code.
 const addTaskButton = document.getElementById("addTaskButton");
 const placeHolder = document.getElementById("placeholderForTasks");
-const successMessage = document.getElementById("successMessage");
-const saveButton = document.getElementById("saveButton");
+
 
 
 addTaskButton.addEventListener("click", function (event) {

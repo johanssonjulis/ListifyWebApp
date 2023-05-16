@@ -45,12 +45,6 @@ namespace ListifyWebApp.Controllers
             Listify listify = db.Listify.Include(l => l.tasks).SingleOrDefault(l => l.Id == id);
             return listify;
 
-            /*Listify listify = db.Listify.Find(id);
-            if (listify != null)
-            {
-                return Ok(listify);
-            }
-            return BadRequest();*/
         }
 
         [Route("Delete/{id}")]
@@ -74,22 +68,7 @@ namespace ListifyWebApp.Controllers
             return NotFound();
         }
 
-        /*
-        public ActionResult DeleteListifyById(int id)
-        {
-            Listify listify = db.Listify.SingleOrDefault(l => l.Id == id);
-            if(listify != null)
-            {
-                db.Listify.Remove(listify); 
-                db.SaveChanges();
-                return NoContent();
-            }
-            return NotFound();
-
-        }
-        */
-
-        //[Route("UpdateList")]
+ 
         [HttpPut("update")]
         public async Task<IActionResult> EditListify( int id, EditListify editListify)
         {
