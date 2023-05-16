@@ -32,7 +32,6 @@ namespace ListifyWebApp.Pages
         public IActionResult OnPostAddListify(string[] task)
         {
 
-            
             for (int i = 0; i < task.Length; i++)
             {
                 ItemTask itemTask = new ItemTask()
@@ -43,26 +42,14 @@ namespace ListifyWebApp.Pages
                 items.Add(itemTask);
 
             }
-
             listify.tasks = items;
-                
-
             db.Listify.Add(listify);
             for (int i = 0; i < items.Count; i++)
             {
                 db.Task.Add(items[i]);
             } 
             db.SaveChanges();
-            
             return RedirectToPage("Page3");
-                
-               
-
-
-
-
-            
-
         }
     }
 }

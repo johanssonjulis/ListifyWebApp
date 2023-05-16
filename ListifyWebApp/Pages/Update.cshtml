@@ -6,9 +6,6 @@
 
 
 <div class="displayboxUpdate">
-
-    
-    
     <div class ="divForTasks">
         <form method="post" asp-page-handler="DeleteListify" asp-route-id="@Model.listify.Id">
             <p>Listify: </p>
@@ -22,19 +19,17 @@
         @foreach (Models.ItemTask itemTask in @Model.Tasks)
     {
             
-       <form method="post" asp-route-id="@itemTask.Id">
-                
+        <form method="post" asp-route-id="@itemTask.Id">   
            <div class="divForTasks">
-            <a class="inputWindow"> 
-             <input name="info" asp-for="@itemTask.TaskDescription"></a>
-            <button id="saveButton" type="submit" name="save" runat="server" value="save">
+             <input name="info" asp-for="@itemTask.TaskDescription">
+           <button id="saveButton" type="submit" name="save" runat="server" value="save">
               <img id="saveImg" src="~/Resorses/pics/Save-Button.png" />
-            </button>
-            <button id="deleteButton" type="submit" name="delete" runat="server" value="delete">
+           </button>
+           <button id="deleteButton" type="submit" name="delete" runat="server" value="delete">
                <img id="deleteImg" src="~/Resorses/pics/Trash-Bin.png" />
            </button>
            </div>
-       </form>
+        </form>
         }
     </div>
 </div>

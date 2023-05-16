@@ -37,14 +37,10 @@ namespace ListifyWebApp.Pages
         {
             
             ListifyId = Id;
-
-            this.listify = db.Listify
+            listify = db.Listify
                      .Include( l => l.tasks)
                      .SingleOrDefault(l => l.Id == Id);
             Tasks = listify.tasks;
-
-           
-            
             
         }
         public ActionResult OnPostDeleteListify(int Id, string infostring, string saveListify, string deleteListify) 

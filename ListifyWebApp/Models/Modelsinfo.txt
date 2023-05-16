@@ -1,7 +1,0 @@
-Här ska klassen för objektet ligga
-@foreach(ItemTask item in @Model.listify.tasks)
-{
-   <input asp-for="@item.TaskDescription"/>
-   <button class="edit">edit</button>
-
-}
