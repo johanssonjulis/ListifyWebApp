@@ -1,9 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
+
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 namespace ListifyClient
 
 
@@ -12,98 +10,133 @@ namespace ListifyClient
     {
 
 
-        public RequestHandler() 
+        public RequestHandler()
         {
 
-        }
-
-        public void Request()
-        {
-            
-            int choice = int.Parse(Console.ReadLine());
-            Console.Clear();
-            Console.WriteLine($"You wrote {choice}");
-            Get();
         }
         public void Get()
         {
-            
-            HttpClient httpClient = new HttpClient();
-           
-            Uri uri = new Uri("https://localhost:7277/api/Listify");
+            Console.WriteLine("Please write the id of the list you want:");
+            string id = Console.ReadLine();
 
-            
-            HttpResponseMessage response = httpClient.GetAsync(uri).Result;
+            HttpClient client = new HttpClient();
+            Uri uri = new Uri("https://localhost:44359/api/Listify/GetListifyById?id=" + id);
 
-            
-            Console.WriteLine("Status Code: " + (int)response.StatusCode);
-            Console.WriteLine("Means: " + response.StatusCode);
+            HttpResponseMessage response = client.GetAsync(uri).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+                Console.WriteLine(json);
+                var listify = JsonSerializer.Deserialize<Listify>(json);
+                
+                Console.WriteLine($"List name: {listify.Name}");
+                
+                foreach( var task in listify.tasks) 
+                {
+                    Console.WriteLine(task); 
+                }
 
-           
-            string text = response.Content.ReadAsStringAsync().Result;
-
-            
-            Console.WriteLine(text);
-
-
+            }
+            else
+            {
+                Console.WriteLine("Error. " + response.ReasonPhrase);
+            }
         }
         public void Post()
         {
+            Console.WriteLine("What's the name of the list?");
+            string listName = Console.ReadLine();
+
+            var listify = new Listify() { Name = listName };
+            List<ItemTask> itemTask = new List<ItemTask>();
+
+            string task;
+            ItemTask addedTask;
+            string input;
+
+            while (true)
+            {
+                Console.WriteLine("Press q anytime to quit");
+                Console.WriteLine("Add task: ");
+                input = Console.ReadLine();
+                if (input.ToLower().Equals("q"))
+                    break;
+
+                addedTask = new ItemTask() { TaskDescription = input };
+                itemTask.Add(addedTask);
+
+            }
+
+            listify.tasks = itemTask;
+
             HttpClient httpClient = new HttpClient();
-            Uri uri = new Uri("https://localhost:7277/api/Listify");
+            Uri uri = new Uri("https://localhost:44359/api/Listify/PostList");
 
+            string json = System.Text.Json.JsonSerializer.Serialize(listify);
 
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-            string json = JsonConvert.SerializeObject(new Listify(10, "julia"));
+            HttpResponseMessage response = httpClient.PostAsync(uri, stringContent).Result;
 
-            Console.WriteLine("Json sent: " + json);
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine(listify.Name + " successfully registered!");
+            }
+            else
+            {
+                Console.WriteLine("Post failed. Status Code " + (int)response.StatusCode + ": " + response.StatusCode);
+            }
+        }
+        public void Put()
+        {
+            Console.WriteLine("What is the id nr of the list you want to update?");
+            int listIdInt = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("Enter the new name for the list:");
+            string newListName = Console.ReadLine();
 
-            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            var listify = new EditListify() { Id = listIdInt, Name = newListName };
 
+            HttpClient httpClient = new HttpClient();
+            Uri uri = new Uri("https://localhost:44359/api/Listify/update?id=" + listIdInt);
 
-            HttpResponseMessage response = httpClient.PostAsync(uri, content).Result;
-            Console.WriteLine("Status Code: " + (int)response.StatusCode);
-            Console.WriteLine("Means: " + response.StatusCode);
+            string json = System.Text.Json.JsonSerializer.Serialize(listify);
+            Console.WriteLine(json); //skriver ut listan i json
+
+            StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = httpClient.PutAsync(uri, stringContent).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Updated!");
+            }
+            else
+            {
+                Console.WriteLine("Put failed. Status Code " + (int)response.StatusCode + ": " + response.StatusCode);
+            }
 
         }
-        public void Put() 
+        public void Delete()
         {
-            HttpClient httpClient = new HttpClient();
-            Uri uri = new Uri("https://localhost:7277/api/Listify");
+            Console.WriteLine("Please write the id nr of the list you want to delete.");
+            string listId = Console.ReadLine();
 
-            HttpResponseMessage response = httpClient.GetAsync(uri).Result;
+            HttpClient client = new HttpClient();
+            Uri uri = new Uri("https://localhost:44359/api/Listify/Delete/" + listId);
 
-
-            Console.WriteLine("Status Code: " + (int)response.StatusCode);
-            Console.WriteLine("Means: " + response.StatusCode);
-
-
-            string text = response.Content.ReadAsStringAsync().Result;
-
-
-            Console.WriteLine(text);
-
+            HttpResponseMessage response = client.DeleteAsync(uri).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"List with id {listId} successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("Error. " + response.ReasonPhrase);
+            }
 
         }
-        public void Delete() 
-        {
-            HttpClient httpClient = new HttpClient();
-            Uri uri = new Uri("https://localhost:7277/api/Listify");
-
-            HttpResponseMessage response = httpClient.DeleteAsync(uri).Result;
-
-
-            Console.WriteLine("Status Code: " + (int)response.StatusCode);
-            Console.WriteLine("Means: " + response.StatusCode);
-
-
-            string text = response.Content.ReadAsStringAsync().Result;
-
-
-            Console.WriteLine(text);
-
     }
-        }
+        
 }
 

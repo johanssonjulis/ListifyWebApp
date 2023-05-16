@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ListifyClient
 {
-    public class Listify
+    public class Listify 
     {
         [Key]
 
@@ -31,12 +32,18 @@ namespace ListifyClient
         {
             
         }
+
+       
     }
 
-    public class ItemTask
+    public class ItemTask 
     {
         [Key]
+
+        [JsonPropertyName("id")]
         public int Id { get; set; }
+
+        [JsonPropertyName("taskDescription")]
         public string TaskDescription { get; set; }
 
         public ItemTask()
@@ -48,6 +55,10 @@ namespace ListifyClient
             Id = id;
             TaskDescription = taskDescription;
 
+        }
+        public override string ToString()
+        {
+            return $"Task: {TaskDescription}";
         }
     }
 }
