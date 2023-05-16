@@ -8,8 +8,6 @@ namespace ListifyClient
 {
     public class RequestHandler
     {
-
-
         public RequestHandler()
         {
 
@@ -20,15 +18,17 @@ namespace ListifyClient
             string id = Console.ReadLine();
 
             HttpClient client = new HttpClient();
-            Uri uri = new Uri("https://localhost:44359/api/Listify/GetListifyById?id=" + id);
+            Uri uri = new Uri("https://localhost:7277/api/Listify/GetListifyById?id=" + id);
 
             HttpResponseMessage response = client.GetAsync(uri).Result;
             if (response.IsSuccessStatusCode)
             {
+                Console.WriteLine($"Statuscode: {(int)response.StatusCode} with response: {response.StatusCode}.");
                 string json = response.Content.ReadAsStringAsync().Result;
                 Console.WriteLine(json);
                 var listify = JsonSerializer.Deserialize<Listify>(json);
                 
+                Console.WriteLine();
                 Console.WriteLine($"List name: {listify.Name}");
                 
                 foreach( var task in listify.tasks) 
@@ -70,7 +70,7 @@ namespace ListifyClient
             listify.tasks = itemTask;
 
             HttpClient httpClient = new HttpClient();
-            Uri uri = new Uri("https://localhost:44359/api/Listify/PostList");
+            Uri uri = new Uri("https://localhost:7277/api/Listify/PostList");
 
             string json = System.Text.Json.JsonSerializer.Serialize(listify);
 
@@ -80,7 +80,7 @@ namespace ListifyClient
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine(listify.Name + " successfully registered!");
+                Console.WriteLine($"Statuscode: {(int)response.StatusCode} {response.StatusCode} - List: {listify.Name} successfully registered!");
             }
             else
             {
@@ -98,7 +98,7 @@ namespace ListifyClient
             var listify = new EditListify() { Id = listIdInt, Name = newListName };
 
             HttpClient httpClient = new HttpClient();
-            Uri uri = new Uri("https://localhost:44359/api/Listify/update?id=" + listIdInt);
+            Uri uri = new Uri("https://localhost:7277/api/Listify/update?id=" + listIdInt);
 
             string json = System.Text.Json.JsonSerializer.Serialize(listify);
             Console.WriteLine(json); //skriver ut listan i json
@@ -109,7 +109,7 @@ namespace ListifyClient
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"Updated!");
+                Console.WriteLine($"Statuscode: {(int)response.StatusCode} {response.StatusCode} - {listify.Name} updated!");
             }
             else
             {
@@ -123,12 +123,12 @@ namespace ListifyClient
             string listId = Console.ReadLine();
 
             HttpClient client = new HttpClient();
-            Uri uri = new Uri("https://localhost:44359/api/Listify/Delete/" + listId);
+            Uri uri = new Uri("https://localhost:7277/api/Listify/Delete/" + listId);
 
             HttpResponseMessage response = client.DeleteAsync(uri).Result;
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"List with id {listId} successfully deleted.");
+                Console.WriteLine($"Statuscode: {(int)response.StatusCode} {response.StatusCode} - List with id {listId} successfully deleted.");
             }
             else
             {

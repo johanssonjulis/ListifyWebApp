@@ -25,12 +25,14 @@ namespace ListifyClient
         {
             while (true)
             {
-                Console.WriteLine("This is the client");
+                Console.WriteLine();
+                Console.WriteLine("THIS IS THE CLIENT");
                 Console.WriteLine("1. -> Get    | See list by id number");
                 Console.WriteLine("2. -> Post   | Add list");
                 Console.WriteLine("3. -> Put    | Update list");
                 Console.WriteLine("4. -> Delete | Delete list");
                 Console.WriteLine("5. -> Quit   | Quit the program");
+                Console.WriteLine();
                 string input = Console.ReadLine().ToLower();
 
                 switch (input)
