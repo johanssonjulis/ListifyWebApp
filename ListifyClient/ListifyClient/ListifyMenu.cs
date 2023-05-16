@@ -20,7 +20,7 @@ namespace ListifyClient
             while (true)
             {
                 Console.WriteLine("This is the client");
-                Console.WriteLine("1. -> Get    | See your lists");
+                Console.WriteLine("1. -> Get    | See list by id number");
                 Console.WriteLine("2. -> Post   | Add list");
                 Console.WriteLine("3. -> Put    | Update list");
                 Console.WriteLine("4. -> Delete | Delete list");
@@ -45,12 +45,16 @@ namespace ListifyClient
                     case "delete":
                         Delete();
                         break;
+                    case "5":
                     case "quit":
+                        Environment.Exit(0);
+                        break;
 
-                        return;
+                       
                 }
             }
         }
+
 
         private void Get()
         {

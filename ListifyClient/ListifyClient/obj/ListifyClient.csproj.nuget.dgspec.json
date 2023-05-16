@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Malin Chramer\\source\\repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj": {}
+    "C:\\Users\\Malin Chramer\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Malin Chramer\\source\\repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj": {
+    "C:\\Users\\Malin Chramer\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Malin Chramer\\source\\repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+        "projectUniqueName": "C:\\Users\\Malin Chramer\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
         "projectName": "ListifyClient",
-        "projectPath": "C:\\Users\\Malin Chramer\\source\\repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
+        "projectPath": "C:\\Users\\Malin Chramer\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\ListifyClient.csproj",
         "packagesPath": "C:\\Users\\Malin Chramer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Malin Chramer\\source\\repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\obj\\",
+        "outputPath": "C:\\Users\\Malin Chramer\\Source\\Repos\\ListifyWebApp\\ListifyClient\\ListifyClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Malin Chramer\\AppData\\Roaming\\NuGet\\NuGet.Config",
