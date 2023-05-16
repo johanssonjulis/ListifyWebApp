@@ -80,7 +80,7 @@ namespace ListifyClient
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"Statuscode: {(int)response.StatusCode} {response.StatusCode} - List: {listify.Name} successfully registered!");
+                Console.WriteLine($"Statuscode: {(int)response.StatusCode} with response: {response.StatusCode} - List: {listify.Name} successfully registered!");
             }
             else
             {
@@ -109,7 +109,7 @@ namespace ListifyClient
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"Statuscode: {(int)response.StatusCode} {response.StatusCode} - {listify.Name} updated!");
+                Console.WriteLine($"Statuscode: {(int)response.StatusCode} with response: {response.StatusCode} - {listify.Name} updated!");
             }
             else
             {
@@ -128,7 +128,7 @@ namespace ListifyClient
             HttpResponseMessage response = client.DeleteAsync(uri).Result;
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"Statuscode: {(int)response.StatusCode} {response.StatusCode} - List with id {listId} successfully deleted.");
+                Console.WriteLine($"Statuscode: {(int)response.StatusCode} with response: {response.StatusCode} - List with id {listId} successfully deleted.");
             }
             else
             {
